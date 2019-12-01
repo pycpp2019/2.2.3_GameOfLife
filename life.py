@@ -69,7 +69,7 @@ def step(state):
 				s+=state[i][j-1]
 			else:
 				s+=state[i][len(state[0])-1]
-			if(state[i][j]==1 and s!=2 and s!=3):
+			if(state[i][j]==1 and (s<2 or s>3)):
 				stateNew[i][j]=0
 			if(state[i][j]==0 and s==3):
 				stateNew[i][j]=1
