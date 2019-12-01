@@ -60,10 +60,10 @@ def step(state):
 			else:
 				if i==len(state)-1 and j!=0:
 					s+= state[0][j-1]
-				if i==len(state)-1 and j==len(state[0])-1:
+				if i==len(state)-1 and j==0:
 					s+= state[0][len(state[0])-1]
-				if i!=len(state)-1 and j==len(state[0])-1:
-					s+= state[i+1][len(state[0]-1)]
+				if i!=len(state)-1 and j==0:
+					s+= state[i+1][len(state[0])-1]
 
 			if(j!=0):
 				s+=state[i][j-1]
@@ -73,5 +73,6 @@ def step(state):
 				stateNew[i][j]=0
 			if(state[i][j]==0 and s==3):
 				stateNew[i][j]=1
-
+			print(s)
 	return stateNew
+
