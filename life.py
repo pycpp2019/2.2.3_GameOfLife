@@ -73,5 +73,5 @@ def step(state):
 				stateNew[i][j]=0
 			if(state[i][j]==0 and s==3):
 				stateNew[i][j]=1
-	statNew=np.array(statNew,dtype=np.bool)
+
 	return stateNew
