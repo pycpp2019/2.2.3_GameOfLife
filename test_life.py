@@ -42,7 +42,7 @@ def test_glider():
 
 @pytest.mark.timeout(60)
 def test_glider_large_field():
-    size = 500
+    size = 400
     data = np.zeros((size, size), dtype=np.bool)
     data[:5,:5] = np.array([
         [0,0,0,0,0],
