@@ -1,16 +1,22 @@
 import numpy as np
 	
-def BornOrDie(a,b):
-	if a==0 and b==3:
+def TwoAndThree(a):
+	if a==2 or a==3:
 		return 1
-	if a==1 and (b<2 or b>3):
+	else:
 		return 0
-	return a
+
+def Three(a):
+	if a==3:
+		return 1
+	else:
+		return 0
 
 def step(state):
 	state=np.array(state)
 	stateSum=np.roll(state,1,axis=0)+np.roll(state,-1,axis=0)+np.roll(state,1,axis=1)+np.roll(state,-1,axis=1)+np.roll(np.roll(state,1,axis=0),1,axis=1)+np.roll(np.roll(state,1,axis=0),-1,axis=1)+np.roll(np.roll(state,-1,axis=0),1,axis=1)+np.roll(np.roll(state,-1,axis=0),-1,axis=1)
-	VBornOrDie=np.vectorize(BornOrDie)
-	return VBornOrDie(state,stateSum)
-
-
+	TwoAndThreeV=np.vectorize(TwoAndThree)
+	ThreeV=np.vectorize(Three)
+	StateSumTT=TwoAndThreeV(stateSum)*state
+	StateSumT=np.logical_xor(ThreeV(stateSum),state)*ThreeV(stateSum)
+	return StateSumT+StateSumTT
