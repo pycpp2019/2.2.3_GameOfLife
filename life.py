@@ -19,4 +19,4 @@ def step(state):
 	ThreeV=np.vectorize(Three)
 	StateSumTT=TwoAndThreeV(stateSum)*state
 	StateSumT=np.logical_xor(ThreeV(stateSum),state)*ThreeV(stateSum)
-	return StateSumT+StateSumTT
+	return np.array(StateSumT+StateSumTT,dtype=bool)
